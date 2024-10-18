@@ -48,17 +48,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "2fbd8222-5896-4d92-a26a-d45c34f798f7",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "left",
                     "id": "f9216948-9f49-48b9-a76d-5f62e108b9dd",
                     "path": "<Keyboard>/a",

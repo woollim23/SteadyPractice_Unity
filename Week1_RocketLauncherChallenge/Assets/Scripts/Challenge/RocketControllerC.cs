@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class RocketControllerC : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class RocketControllerC : MonoBehaviour
     private RocketMovementC _rocketMovement;
     
     private bool _isMoving;
+    private Vector3 _inputDirection;
     [SerializeField]private float _movementDirection;
     
     private readonly float ENERGY_TURN = 0.5f;
@@ -23,7 +25,6 @@ public class RocketControllerC : MonoBehaviour
         if (!_isMoving) return;
         
         if(!_energySystem.UseEnergy(Time.fixedDeltaTime * ENERGY_TURN)) return;
-        
         _rocketMovement.ApplyMovement(_movementDirection);
     }
 
@@ -31,11 +32,11 @@ public class RocketControllerC : MonoBehaviour
     public void OnMove(InputAction.CallbackContext value)
     {
         Vector2 dir = value.ReadValue<Vector2>().normalized;
-        
-        _movementDirection = Mathf.Atan2(dir.y, dir.x);
-        Debug.Log(_movementDirection);
-        // 방향값이 0이 아니면 움직이는 상태로 전환
-        _isMoving = _movementDirection != 0;
+
+        _inputDirection = dir;
+        _movementDirection = Mathf.Atan2(dir.y, dir.x); 
+
+        _isMoving = dir.sqrMagnitude > 0; 
     }
 
 
