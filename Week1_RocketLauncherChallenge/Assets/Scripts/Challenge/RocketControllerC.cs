@@ -32,10 +32,9 @@ public class RocketControllerC : MonoBehaviour
     public void OnMove(InputAction.CallbackContext value)
     {
         Vector2 dir = value.ReadValue<Vector2>().normalized;
-
-        _inputDirection = dir;
-        _movementDirection = Mathf.Atan2(dir.y, dir.x); 
-
+        Debug.Log(dir);
+        _movementDirection = dir.x; 
+        
         _isMoving = dir.sqrMagnitude > 0; 
     }
 

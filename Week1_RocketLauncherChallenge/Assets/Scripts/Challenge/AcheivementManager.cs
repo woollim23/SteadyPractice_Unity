@@ -17,11 +17,13 @@ public class AchievementManager : MonoBehaviour
 
     private void Start()
     {
+        RocketMovementC.OnHighScoreChanged += CheckAchievement;
         achievementView.CreateAchievementSlots(achievements);  // UI 생성
     }
 
     // 최고 높이를 달성했을 때 업적 달성 판단, 이벤트 기반으로 설계할 것
     private void CheckAchievement(float height)
     {
+        //if(height == 100)
     }
 }
